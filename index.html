@@ -1700,6 +1700,7 @@
             // 1. Ocultar pantalla de bienvenida
             if (pantallaBienvenida) {
                 pantallaBienvenida.style.display = 'none';
+                document.body.classList.remove('bienvenida-activa'); // Desbloquear scroll
                 console.log('✓ Pantalla de bienvenida ocultada');
             }
             
@@ -1719,6 +1720,9 @@
             btnEmpezar.addEventListener('click', iniciarInvitacion);
             console.log('✓ Botón Empezar listo');
         }
+        
+        // Bloquear scroll mientras está el menú de bienvenida
+        document.body.classList.add('bienvenida-activa');
           
         // Inicializar Animaciones
         try { AOS.init(); } catch (e) { }

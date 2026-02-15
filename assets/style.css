@@ -3341,6 +3341,13 @@ body.modal-open {
     overflow: hidden;
 }
 
+/* Bloquear scroll cuando la pantalla de bienvenida está activa */
+body.bienvenida-activa {
+    overflow: hidden;
+}
+    overflow: hidden;
+}
+
 /* Clase para ocultar la pantalla con una transición */
 #pantalla-bienvenida.fade-out {
     opacity: 0;
