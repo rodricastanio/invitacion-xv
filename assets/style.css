@@ -1,0 +1,3278 @@
+/* Generales */
+
+:root {
+  /* ---------- */
+
+  /* Responsive fixes */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+
+  }
+
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  img,
+  picture,
+  video,
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .parallax-mirror,
+  .parallax-slider {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  @media (max-width: 767px) {
+    .flores-grupo02-wrapper {
+      display: block !important;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      /* Ajusta según donde quieras sobre la ola */
+      width: 80% !important;
+      max-width: 300px !important;
+      height: auto;
+      z-index: 200 !important;
+      /* Por encima de la ola (z-index: 100) */
+      pointer-events: none;
+    }
+
+    /* Asegurar que las imágenes se superpongan */
+    .flores-grupo02-wrapper picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .flores-grupo02-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Asegurar que la ola esté debajo */
+    .ola-separador {
+      position: absolute;
+      z-index: 100;
+      bottom: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    body,
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .d-md-flex {
+      display: block !important;
+    }
+
+    .flores-grupo02-wrapper {
+      position: absolute;
+      bottom: 20px;
+      /* SUBE o BAJA las flores sobre la ola */
+      left: 0;
+      /* LADO IZQUIERDO */
+      width: 180px;
+      /* Tamaño del grupo */
+      height: 220px;
+      /* IMPORTANTE para superposición */
+      z-index: 200;
+      /* Más que la ola */
+      pointer-events: none;
+    }
+
+    .flores-grupo02-wrapper img {
+      position: absolute;
+      bottom: 60px;
+      left: 140px;
+      width: 50%;
+      height: auto;
+    }
+
+
+
+    section.portada .portada-picture,
+    section.portada .portada-container {
+      width: 100% !important;
+    }
+
+    section.portada .portada-container .row.d-flex {
+      height: auto !important;
+      padding: 0px 10px;
+    }
+
+    section.portada .portada-container .portada-container-2 {
+      max-width: 100% !important;
+      padding: 0 12px;
+    }
+
+    section.portada .content-portada h1 {
+      font-size: 32px !important;
+      line-height: 38px !important;
+      margin-top: 15px;
+    }
+
+    section.portada .content-portada h2 {
+      font-size: 50px !important;
+      line-height: 28px !important;
+      margin-top: 30px;
+    }
+
+    .title {
+      font-size: 28px !important;
+      line-height: 34px !important;
+    }
+
+    .subtitle {
+      font-size: 16px !important;
+    }
+
+    section.portada .content-portada span.fecha {
+      font-size: 18px !important;
+      padding: 6px 12px !important;
+      margin-bottom: 20px !important;
+    }
+
+    section.cuenta-regresiva .box-aros,
+    section.cuenta-regresiva .box-aros .box-circulo {
+      width: 100% !important;
+      height: auto !important;
+      padding: 10px !important;
+    }
+
+    section.cuenta-regresiva .box-aros .box-circulo {
+      padding: 10px !important;
+    }
+
+    section.cuenta-regresiva .reloj-col span.number {
+      font-size: 28px !important;
+    }
+
+    section.cuenta-regresiva .reloj-col span.time {
+      font-size: 14px !important;
+    }
+
+    section.ceremonia-fiesta .col-ceremonia h3,
+    section.ceremonia-fiesta .col-fiesta h3 {
+      font-size: 40px !important;
+      min-width: auto !important;
+      padding: 6px 8px !important;
+    }
+
+    section.fiesta {
+      padding-top: 6% !important;
+      padding-bottom: 6% !important;
+    }
+
+    .item-fiesta .content-item-fiesta {
+      min-height: auto !important;
+      padding: 20px !important;
+    }
+
+    .banner-contacto-web {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .modal .modal-content {
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    /* Adornos y elementos absolutamente posicionados: restringir ancho y centrar */
+    .adorno,
+    .adorno-1,
+    .adorno-2,
+    .adorno-3,
+    #modalMusica .adorno,
+    .modal .adorno-1 {
+      max-width: 90% !important;
+      width: auto !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    section.portada .portada-picture::after {
+      right: 0 !important;
+    }
+
+
+  }
+
+
+  --color-1: #8c5e44;
+  --color-2: #b49073;
+  --color-3: #d68b75;
+  --color-4: #ffff;
+  --color-5: #93A8AC;
+
+  /* Fuentes */
+  --fuente-1: 'Playfair Display',
+  serif;
+  --fuente-2: 'Open Sans',
+  sans-serif;
+
+  --grosor-fuente-light: 300;
+  --grosor-fuente-regular: 400;
+  --grosor-fuente-bold: 700;
+
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+
+}
+
+
+
+/* Scroll */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--color-3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-2);
+}
+
+.custom-control-label::before {
+  height: 20px;
+  width: 20px;
+}
+
+.custom-control-label::after {
+  height: 20px;
+  width: 20px;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  color: var(--color-1);
+  border-color: var(--color-1);
+  background-color: var(--color-1);
+  outline: none;
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none !important;
+}
+
+.addeventatc:hover {
+  background: none;
+}
+
+.fancybox-bg {
+  background-color: var(--color-3) !important;
+}
+
+.boton {
+  background: var(--color-3);
+  color: #fff;
+  text-transform: capitalize;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  border-radius: 50px;
+  line-height: 15px;
+  font-size: 17px;
+  padding: 18px 30px;
+
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
+
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+.boton:hover {
+  background: var(--color-5);
+  text-decoration: none;
+  color: #fff;
+}
+
+.title {
+  width: 100%;
+  display: inline-block;
+  font-family: var(--fuente-1);
+  font-weight: var(--grosor-fuente-regular);
+  color: var(--color-1);
+  font-size: 60px;
+  line-height: 70px;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  width: 100%;
+  display: inline-block;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  color: var(--color-3);
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+a {
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+
+/* Fondo modales */
+.modal-backdrop {
+  background-color: var(--color-4);
+  opacity: 1 !important;
+}
+
+.backdrop-modal-musica .modal-backdrop {
+  background-color: var(--color-4);
+  opacity: 1 !important;
+}
+
+.modal-body {
+  flex: inherit;
+}
+
+
+.modal.modal-transparent .modal-content {
+  border: none;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.modal.modal-transparent .close {
+  color: var(--color-2);
+  font-size: 40px;
+  text-shadow: none;
+  opacity: 1;
+  position: absolute;
+  right: 35px;
+  outline: none;
+  padding: 0;
+}
+
+.modal.modal-transparent .modal-header,
+.modal .modal-transparent .modal-footer {
+  border: none;
+  padding: 0;
+}
+
+.modal.modal-transparent .modal-header h3 {
+  color: var(--color-3);
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  text-align: center;
+  width: 100%;
+}
+
+.modal.modal-transparent .boton {
+  padding: 15px 50px;
+}
+
+
+
+/* Cambio de idiomas / paises */
+
+.flags-laguages {
+  padding: 15px;
+}
+
+.flags-laguages li a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin: 10px 8px;
+  opacity: 0.75;
+  border: 2px solid var(--color-4);
+}
+
+.flags-laguages li a:hover {
+  opacity: 1;
+}
+
+.flags-laguages a.reset-lang {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.flags-laguages a.reset-lang:hover {
+  text-decoration: underline;
+}
+
+.flags-laguages a.reset-lang img {
+  width: 22px;
+  height: auto;
+  margin-right: 5px;
+}
+
+
+
+/* Loader */
+
+
+.preloader-area {
+  position: fixed;
+  background: var(--color-4);
+  z-index: 11000;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.preloader-area .loader {
+  width: 130px;
+}
+
+
+span#error-form {
+  color: red;
+  font-size: 13px;
+}
+
+
+/* ---------- */
+
+
+/* Portada */
+section.portada {
+  width: 100%;
+  padding-bottom: 0;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+
+section.portada .portada-picture {
+  width: 55%;
+  position: relative;
+
+}
+
+.portada-con-espacio {
+  background-color: var(--color-4);
+  /* El color de fondo de la capa */
+  padding-bottom: 0;
+  /* El grosor del espacio blanco abajo */
+  display: flex;
+  flex-direction: column;
+}
+
+.img-portada {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Esto quita cualquier espacio extra que HTML pone bajo las imágenes */
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  /* imagen por debajo de la ola */
+}
+
+/* Por defecto ocultar el wrapper de Grupo02 en pantallas grandes; se muestra solo en mobile (responsive.css) */
+.flores-grupo02-wrapper {
+  display: none;
+}
+
+/* ======================= */
+/* AJUSTES LOGO CIRCULAR SUPERIOR - MÁS GRANDE */
+/* ======================= */
+
+/* Estilos específicos para el modal de vestuario */
+#modalVestuario .modal-body {
+  padding: 25px 30px;
+}
+
+#modalVestuario .modal-body p {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#modalVestuario .modal-body p strong {
+  color: var(--color-3);
+  font-weight: 600;
+}
+
+#modalVestuario .modal-body .boton {
+  background-color: var(--color-3);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--fuente-2);
+  font-size: 16px;
+  display: inline-block;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
+}
+
+#modalVestuario .modal-body .boton:hover {
+  background-color: var(--color-5);
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.30);
+  text-decoration: none;
+  color: white;
+}
+
+/* Estilos específicos para el modal de regalos */
+#modalRegalos .modal-body {
+  padding: 25px 30px;
+  text-align: center;
+}
+
+#modalRegalos .gracias-regalo {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#modalRegalos .datos-transferencia {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+#modalRegalos .dato-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed rgba(140, 94, 68, 0.2);
+}
+
+#modalRegalos .dato-item:last-child {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+#modalRegalos .dato-item h6 {
+  color: var(--color-3);
+  font-family: var(--fuente-1);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#modalRegalos .dato-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(140, 94, 68, 0.1);
+}
+
+#modalRegalos .dato-texto {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+  flex: 1;
+  text-align: left;
+}
+
+#modalRegalos .btn-copiar {
+  background-color: var(--color-3);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-family: var(--fuente-2);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#modalRegalos .btn-copiar:hover {
+  background-color: var(--color-5);
+  transform: translateY(-1px);
+}
+
+#modalRegalos .btn-copiar:active {
+  transform: translateY(0);
+}
+
+#modalRegalos .btn-copiar svg {
+  fill: white;
+}
+
+#modalRegalos .mensaje-copiado {
+  background-color: rgba(147, 168, 172, 0.9);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-family: var(--fuente-2);
+  font-size: 14px;
+  margin-top: 20px;
+  display: none;
+  animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #modalRegalos .modal-body {
+    padding: 20px 15px;
+  }
+
+  #modalRegalos .gracias-regalo {
+    font-size: 16px;
+    padding: 0 5px;
+  }
+
+  #modalRegalos .dato-item h6 {
+    font-size: 19px;
+  }
+
+  #modalRegalos .dato-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #modalRegalos .btn-copiar {
+    align-self: flex-end;
+  }
+
+  #modalRegalos .dato-texto {
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+
+/* Asegurar que el contenido esté centrado */
+#modalVestuario .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #modalVestuario .modal-body p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  #modalVestuario .modal-body .boton {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
+}
+
+#modalAsistencia .logo-modal-superior {
+  position: absolute;
+  top: -65px;
+  /* Subido para que más parte quede fuera (era -50px) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  /* Aumentado de 100px a 140px */
+  height: 140px;
+  /* Aumentado de 100px a 140px */
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.50);
+  /* Sombra más fuerte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border: 8px solid var(--color-4);
+  /* Borde más grueso (era 5px) */
+}
+
+#modalAsistencia .logo-modal-superior img {
+  width: 85%;
+  /* Aumentado de 70% a 85% */
+  height: 85%;
+  /* Aumentado de 70% a 85% */
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* ======================= */
+/* BAJAR EL MODAL COMPLETO */
+/* ======================= */
+
+#modalAsistencia .modal-dialog.modal-dialog-centered {
+  transform: translateY(40px) !important;
+  /* Baja el modal 40px */
+}
+
+/* Ajustar el padding superior del contenido del modal */
+#modalAsistencia .modal-content-2 {
+  padding-top: 0 !important;
+  /* Más espacio arriba para el logo */
+}
+
+/* ======================= */
+/* PARA MÓVILES */
+/* ======================= */
+
+@media (max-width: 768px) {
+  #modalAsistencia .logo-modal-superior {
+    width: 110px;
+    /* Aumentado de 80px a 110px */
+    height: 110px;
+    /* Aumentado de 80px a 110px */
+    top: -55px;
+    /* Subido (era -40px) */
+    border: 6px solid var(--color-4);
+    /* Borde más grueso */
+  }
+
+  #modalAsistencia .logo-modal-superior img {
+    width: 80%;
+    /* Aumentado de 65% a 80% */
+    height: 80%;
+    /* Aumentado de 65% a 80% */
+  }
+
+  /* Bajar menos en móviles */
+  #modalAsistencia .modal-dialog.modal-dialog-centered {
+    transform: translateY(30px) !important;
+    /* Baja 30px en móviles */
+  }
+
+  #modalAsistencia .modal-content-2 {
+    padding-top: 0 !important;
+  }
+}
+
+/* ======================= */
+/* PARA PANTALLAS MUY PEQUEÑAS */
+/* ======================= */
+
+@media (max-width: 576px) {
+  #modalAsistencia .logo-modal-superior {
+    width: 95px;
+    /* Aumentado de 70px a 95px */
+    height: 95px;
+    /* Aumentado de 70px a 95px */
+    top: -48px;
+    /* Subido (era -35px) */
+    border: 5px solid var(--color-4);
+  }
+
+  #modalAsistencia .modal-dialog.modal-dialog-centered {
+    transform: translateY(20px) !important;
+    /* Baja 20px en pantallas pequeñas */
+  }
+
+  #modalAsistencia .modal-content-2 {
+    padding-top: 0 !important;
+  }
+}
+
+/* ======================= */
+/* OPCIONAL: AJUSTAR EL TAMAÑO DEL MODAL SI ES NECESARIO */
+/* ======================= */
+
+/* Si quieres que el modal sea un poco más pequeño también */
+#modalAsistencia .modal-dialog.modal-md {
+  max-width: 500px;
+  /* Ancho máximo (puedes ajustar) */
+}
+
+#modalAsistencia .modal-content {
+  max-height: 500px !important;
+  /* Altura máxima reducida */
+}
+
+@media (max-width: 768px) {
+  #modalAsistencia .modal-dialog.modal-md {
+    max-width: 90%;
+    /* En móviles ocupa 90% */
+    margin: 20px auto !important;
+  }
+}
+
+/* ======================= */
+/* AJUSTAR POSICIÓN DEL BOTÓN CERRAR */
+/* ======================= */
+
+/* Mover el botón cerrar un poco más abajo */
+#modalAsistencia .close {
+  position: absolute !important;
+  top: -15px !important;
+  /* Bajado de -15px a 15px */
+  right: 20px !important;
+  z-index: 1001 !important;
+  /* Encima del logo */
+}
+
+/* ======================= */
+/* AJUSTAR ESPACIADO INTERNO DEL MODAL */
+/* ======================= */
+
+#modalAsistencia .modal-body {
+  padding-top: 0 !important;
+  /* Reducir padding superior del cuerpo */
+}
+
+#modalAsistencia .modal-header {
+  padding-bottom: 5px !important;
+  /* Reducir espacio debajo del header */
+}
+
+#modalAsistencia #titutlo {
+  font-size: 25px;
+  color: var(--color-3);
+  font-family: var(--fuente-1);
+
+}
+
+#modalMapa #titulo {
+
+  font-size: 25px;
+  color: var(--color-3);
+  font-family: var(--fuente-1);
+}
+
+/* Ajuste específico para celular */
+@media (max-width: 768px) {
+  .portada-con-espacio {
+    padding-bottom: 0;
+    /* Un poco más de espacio en móvil para el separador */
+  }
+
+  .content-portada {
+    padding: 0;
+  }
+
+
+
+  /* ELIMINAR COMPLETAMENTE EL ESPACIO BLANCO DEBAJO DE LA OLA */
+  .portada-con-espacio {
+    background: transparent !important;
+    padding-bottom: 0 !important;
+  }
+
+  .ola-separador {
+    bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Subir la sección siguiente */
+  section.cuenta-regresiva {
+    margin-top: 120px !important;
+    background-color: #F2EEE2;
+    /* Ajusta este número */
+
+
+  }
+
+  section.portada .portada-container {
+    width: 45%;
+    background: var(--color-4);
+    padding-bottom: 60px;
+    position: relative;
+  }
+
+  section.portada .portada-container .portada-container-2 {
+    width: 100%;
+    max-width: 610px;
+    background: var(--color-4);
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+
+
+  section.portada .portada-container .row.d-flex {
+    height: 760px;
+    margin: 0;
+  }
+
+  section.portada .portada-picture::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 29, 27, 0.1);
+    z-index: 0;
+    top: 0;
+    left: 0;
+  }
+
+  section.portada .portada-picture::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('./ola.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: 0;
+    top: 0;
+    right: -2px;
+  }
+
+  section.portada::after {
+    background-image: url('ola.png');
+    position: absolute;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    /* Importante para que no se corte en móvil */
+    height: 100px;
+    /* Ajusta según el tamaño de tu onda */
+    width: 100%;
+    bottom: 0;
+    z-index: 99;
+  }
+
+  section.portada .container .row:first-child {
+    height: 100vh;
+  }
+
+  section.portada {
+    margin-bottom: 10px;
+
+  }
+
+
+  section.portada .content-portada {
+    width: 100%;
+    z-index: 999;
+    position: relative;
+  }
+
+  section.portada .adorno {
+    position: absolute;
+    height: auto;
+  }
+
+  section.portada .adorno-1 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    top: -50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section.portada .adorno-2 {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: -1px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+
+  section.portada .adorno-3 {
+    position: absolute;
+    width: 310px;
+    height: auto;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+
+  section.portada .box-nombres-fecha-portada {
+    background: var(--pathSVG) center center no-repeat;
+    background-size: 190px;
+    background-position-y: 120px;
+    padding-bottom: 20px;
+  }
+
+  section.portada .content-portada #fecha {
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    font-family: var(--fuente-1);
+    font-size: 29px;
+    line-height: 25px;
+    color: var(--color-3);
+    padding: 8px 30px 10px;
+    margin-bottom: 50px;
+    margin-top: 0;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, var(--color-4), var(--color-3), var(--color-4));
+  }
+
+  section.portada .content-portada h1+span:before,
+  section.portada .content-portada h1+span:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    width: 80px;
+    height: 1px;
+  }
+
+  section.portada .content-portada h1+span:before {
+    left: 65px;
+    background: var(--color-3);
+  }
+
+  section.portada .content-portada h1+span:after {
+    right: 65px;
+    background: var(--color-3);
+  }
+
+  section.portada .content-portada h1 {
+    width: 100%;
+    text-align: center;
+    font-family: var(--fuente-1);
+    text-transform: uppercase;
+    font-weight: var(--grosor-fuente-regular);
+    font-size: 80px;
+    line-height: 85px;
+    margin-bottom: 0;
+    color: var(--color-1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .wrapper-nombre {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .fondo-apertura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    /* Tamaño inicial */
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  section.portada .content-portada h2 {
+    width: 100%;
+    text-align: center;
+    font-family: var(--fuente-1);
+    text-transform: inherit;
+    font-weight: var(--grosor-fuente-regular);
+    font-size: 45px;
+    line-height: 85px;
+    margin-bottom: 0;
+    color: var(--color-3);
+  }
+
+  section.portada .box-nombres-fecha-portada h1:nth-of-type(2) {
+    margin-top: -10px;
+  }
+
+  section.portada .box-nombres-fecha-portada h1+span {
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 50px;
+    font-family: var(--fuente-2);
+    font-weight: var(--grosor-fuente-light);
+    color: var(--color-4)
+  }
+
+  section.portada .box-frase-portada {
+    margin-top: 30px;
+  }
+
+  section.portada .box-frase-portada p {
+    font-family: var(--fuente-2);
+    font-weight: var(--grosor-fuente-regular);
+    font-size: 22px;
+    text-align: center;
+    color: var(--color-2);
+  }
+
+  section.portada .box-frase-portada p img {
+    width: 30px;
+    margin: 10px 0
+  }
+
+  ul.lang-inv {
+    position: absolute;
+    width: 100%;
+    top: -25px;
+  }
+
+  ul.lang-inv li {
+    margin: 0 5px;
+  }
+
+  ul.lang-inv li a {
+    color: var(--color-4);
+    background-color: var(--color-3);
+    font-size: 14px;
+    font-family: var(--fuente-2);
+    font-weight: 400;
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  ul.lang-inv li a:hover {
+    text-decoration: none;
+    background: var(--color-2);
+    color: var(--color-4)
+  }
+
+
+  /* ---------- */
+
+
+  /* Cuenta regresiva */
+  section.cuenta-regresiva {
+    position: relative;
+    height: 270px;
+    background-color: var(--color-4);
+  }
+
+  section.cuenta-regresiva .box-aros {
+    width: 430px;
+    height: 430px;
+    background-color: var(--color-4);
+    position: relative;
+    z-index: 99;
+    top: -200px
+  }
+
+
+
+  section.cuenta-regresiva .adorno {
+    position: absolute;
+    height: auto;
+  }
+
+  section.cuenta-regresiva .adorno-1 {
+    position: absolute;
+    width: 300px;
+    top: -5px;
+    left: 10px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo {
+    width: 315px;
+    height: 315px;
+    padding: 20px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo span.falta {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-family: var(--fuente-1);
+    font-weight: var(--grosor-fuente-regular);
+    color: var(--color-2);
+    font-size: 50px;
+    line-height: 60px;
+    margin-top: 50px;
+
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo .corazon-falta {
+    width: 18%;
+    margin-top: 5px;
+  }
+
+  section.cuenta-regresiva .reloj {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
+  /* RELOJ MUY COMPACTO */
+  section.cuenta-regresiva .reloj-col {
+    padding: 0 5px !important;
+    width: auto !important;
+  }
+
+  section.cuenta-regresiva .reloj-col span.number {
+    font-size: 22px !important;
+    line-height: 24px !important;
+  }
+
+  section.cuenta-regresiva .reloj-col span.time {
+    font-size: 11px !important;
+    line-height: 12px !important;
+  }
+
+  /* Eliminar o reducir bordes */
+  section.cuenta-regresiva .reloj-col {
+    border-right: 0.5px solid var(--color-2) !important;
+  }
+
+  /* El último sin borde */
+  section.cuenta-regresiva .reloj-col:last-child {
+    border-right: none !important;
+  }
+
+  /* Contenedor más compacto */
+  section.cuenta-regresiva .reloj {
+    padding: 0 5px !important;
+  }
+}
+
+section.cuenta-regresiva .reloj {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+section.cuenta-regresiva .reloj-col {
+  width: auto;
+  border-right: 1px solid var(--color-2);
+  padding: 0 15px;
+}
+
+section.cuenta-regresiva .box-aros {
+  position: relative;
+  z-index: 10;
+}
+
+section.cuenta-regresiva .box-aros picture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135%;
+  /* Aumentado para cubrir reloj + corazon */
+  max-width: none;
+  z-index: -1;
+}
+
+section.cuenta-regresiva .box-aros .box-circulo {
+  position: relative;
+  z-index: 2;
+}
+
+section.cuenta-regresiva .reloj-col.no-border {
+  border: none;
+}
+
+section.cuenta-regresiva .reloj-col span.number {
+  display: inline-block;
+  width: 100%;
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-bold);
+  font-size: 40px;
+}
+
+section.cuenta-regresiva .reloj-col span.time {
+  display: inline-block;
+  width: 100%;
+  color: var(--color-2);
+  font-family: var(--fuente-1);
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 20px;
+}
+
+section.cuenta-regresiva p.fin-cuenta {
+  font-size: 30px;
+  line-height: 35px;
+  color: var(--color-3);
+  font-family: var(--fuente-1);
+  margin-top: 30px;
+}
+
+
+
+/* ---------- */
+
+
+
+
+/* Ceremonia - Fiesta */
+
+/* Ceremonia - Fiesta */
+
+section.ceremonia-fiesta {
+  padding-bottom: 20%;
+  position: relative;
+  /* background: url(../img/lineas01.svg) center 0 no-repeat var(--color-4); */
+}
+
+section.ceremonia-fiesta .adorno {
+  position: absolute;
+  height: auto;
+}
+
+section.ceremonia-fiesta .adorno-1 {
+  position: absolute;
+  width: 180px;
+  top: 230px;
+  left: -2px;
+}
+
+section.ceremonia-fiesta .adorno-2 {
+  position: absolute;
+  width: 195px;
+  top: 250px;
+  left: -1px;
+  z-index: 1;
+}
+
+section.ceremonia-fiesta .adorno-3 {
+  position: absolute;
+  width: 190px;
+  top: 250px;
+  left: -2px;
+  z-index: 1;
+}
+
+section.ceremonia-fiesta .col-ceremonia,
+section.ceremonia-fiesta .col-fiesta {
+  z-index: 999;
+}
+
+/* Estilos actualizados para la imagen */
+section.ceremonia-fiesta .col-ceremonia .anim-anillos,
+section.ceremonia-fiesta .anim-fiesta {
+  width: 175px;
+  height: 175px;
+  margin: 0 auto 0px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo específico para el logo de fiesta */
+section.ceremonia-fiesta .anim-fiesta .logo-fiesta {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+section.ceremonia-fiesta .col-fiesta .anim-fiesta {
+  padding: 0px;
+}
+
+section.ceremonia-fiesta .col-ceremonia .anim-anillos {
+  padding: 20px;
+}
+
+section.ceremonia-fiesta .ondas-fondo {
+  position: relative;
+  width: 100%;
+  height: 0;
+  /* Solo ocupa espacio cuando sea necesario */
+  margin-bottom: -100px;
+  /* Ajusta este valor según necesites */
+}
+
+section.ceremonia-fiesta .ondas-decorativas {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* Detrás del logo */
+  max-width: 400px;
+  /* Ajusta según el tamaño que quieras */
+}
+
+/* Asegurar que el logo esté por encima */
+section.ceremonia-fiesta .anim-fiesta {
+  position: relative;
+  z-index: 2;
+  /* Por encima de las ondas */
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.ceremonia-fiesta .col-ceremonia h3,
+section.ceremonia-fiesta .col-fiesta h3 {
+  font-family: var(--fuente-1);
+  color: #FFF;
+  font-size: 100px;
+  display: inline-block;
+  position: relative;
+  min-width: 60%;
+  padding: 10px 0;
+  margin-top: 40px;
+  /* background-color: var(--c}olor-2); */
+}
+
+section.ceremonia-fiesta .col-ceremonia h3:before,
+section.ceremonia-fiesta .col-fiesta h3:before {
+  position: absolute;
+  content: '';
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 100%;
+  width: 16px;
+  left: -15px;
+  top: 0;
+}
+
+section.ceremonia-fiesta .col-ceremonia h3:after,
+section.ceremonia-fiesta .col-fiesta h3:after {
+  position: absolute;
+  content: '';
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 100%;
+  width: 16px;
+  right: -15px;
+  top: 0;
+}
+
+section.ceremonia-fiesta .info-col {
+  margin-top: 30px;
+}
+
+section.ceremonia-fiesta .info-col .info-box {
+  margin-bottom: 55px;
+}
+
+section.ceremonia-fiesta .info-col .info-box h6 {
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-bold);
+  color: var(--color-1);
+  font-size: 25px;
+}
+
+/* Contenedor del título y banderilla */
+section.ceremonia-fiesta .titulo-contenedor {
+  position: relative;
+  display: inline-block;
+  min-height: 120px;
+  /* Aumentado para banderilla más grande */
+  width: 100%;
+  max-width: none;
+  /* Para que ocupe todo el ancho */
+  text-align: center;
+  /* Centrar contenido */
+}
+
+/* Banderilla - Centrada y más pequeña */
+section.ceremonia-fiesta .banderilla {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  max-width: 250px;
+  /* REDUCIDO de 380px a 250px (ajusta según necesites) */
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Título "Fiesta" - Más grande y mejor centrado */
+section.ceremonia-fiesta .titulo-fiesta {
+  position: relative;
+  z-index: 2;
+  font-family: var(--fuente-1);
+  color: #FFF;
+  font-size: 100px;
+  /* AUMENTADO de 40px a 50px */
+  font-weight: bold;
+  /* Para que se vea más fuerte */
+  margin: 0;
+  padding: 15px 0;
+  /* Aumentado padding vertical */
+  background-color: transparent;
+  display: inline-block;
+  min-width: 180px;
+  /* Aumentado para más espacio */
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 40px
+    /* Espaciado entre letras */
+
+}
+
+/* Para que el texto tenga más presencia */
+section.ceremonia-fiesta .titulo-fiesta::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Fondo sutil */
+  z-index: -1;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+
+/* Eliminar los pseudo-elementos de fondo (cintas) si existían */
+section.ceremonia-fiesta .titulo-fiesta:before,
+section.ceremonia-fiesta .titulo-fiesta:after {
+  display: none;
+}
+
+
+section.ceremonia-fiesta .info-col .info-box p {
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  color: var(--color-2);
+  font-size: 20px;
+}
+
+section.ceremonia-fiesta .info-col .info-box a.boton {
+  margin-top: 5px;
+  display: inline-block;
+  width: 50%;
+}
+
+section.ceremonia-fiesta:after {
+  position: absolute;
+  content: '';
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+}
+
+section.ceremonia-fiesta .ondas-2 {
+  position: absolute;
+  top: 3%;
+}
+
+section.ceremonia-fiesta .addeventatc .nameBtn {
+  color: #fff;
+}
+
+section.ceremonia-fiesta .addeventatc:hover .nameBtn {
+  color: #fff;
+}
+
+/* ---------- */
+
+
+
+
+/* Galeria */
+
+section.galeria {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+  background-color: var(--color-4);
+  overflow: hidden;
+  /* Para que la ola no desborde */
+}
+
+/* Contenedor de la ola superior */
+section.galeria .ola-superior {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+  margin-top: 40px;
+  /* Para que no interfiera con clics */
+}
+
+/* Ola decorativa - que cubra de punta a punta */
+section.galeria .ola-decorativa {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(-50%);
+  /* Para que la mitad superior sea visible */
+  max-width: none;
+  /* Elimina cualquier limitación de ancho */
+}
+
+/* Si la ola no cubre completamente, usa esto: */
+section.galeria .ola-superior {
+  position: absolute;
+  top: -10px;
+  /* Ajusta según la forma de tu ola */
+  left: 0;
+  width: 100vw;
+  /* 100% del viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* O si necesitas forzar el ancho completo */
+section.galeria .ola-decorativa {
+  width: 100vw !important;
+  min-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  /* Truco para centrar */
+}
+
+/* Ajusta el padding superior para el contenido */
+section.galeria .container {
+  position: relative;
+  z-index: 2;
+  /* Por encima de la ola */
+  padding-top: 60px;
+  /* Espacio para la ola */
+}
+
+/* Si cambiaste el SVG por imagen */
+section.galeria .anim-galeria {
+  width: 70px;
+  margin: 0 auto;
+}
+
+section.galeria .anim-galeria .logo-galeria {
+  width: 100%;
+  height: auto;
+}
+
+/* Resto de tu CSS existente */
+section.galeria .content-fotos {
+  margin-top: 40px;
+  position: relative;
+}
+
+section.galeria .content-fotos img {
+  width: 100%;
+
+}
+
+section.galeria .content-fotos .polaroid a {
+  outline: none;
+}
+
+section.galeria .content-fotos .polaroid {
+  padding: 15px;
+  padding-bottom: 100px;
+  margin: 5px;
+  background-color: var(--color-4);
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
+  transition: all 0.5s 0s ease;
+}
+
+section.galeria .slick-slide:focus {
+  outline: none !important;
+}
+
+section.galeria .slick-center .polaroid {
+  background-color: var(--color-5) !important;
+}
+
+.content-fotos .shadow-left {
+  display: none;
+}
+
+.content-fotos .shadow-right {
+  display: none;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+section.galeria .slick-dots li button:before {
+  font-size: 45px !important;
+  color: var(--color-5) !important;
+  opacity: 0.60;
+}
+
+section.galeria .slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+section.galeria h2.title {
+  font-size: 48px !important;
+  line-height: 1.3 !important;
+
+}
+
+
+section.galeria p.subtitle {
+  font-size: 22px !important;
+}
+
+/* ---------- */
+
+
+/* Fiesta */
+
+section.fiesta {
+  /* background: url('../img/img_ondas03.svg') center top no-repeat; */
+  background-color: var(--color-4);
+  padding-top: 14%;
+  position: relative;
+  padding-bottom: 17%;
+  margin-top: 150px;
+}
+
+section.fiesta h2.title {
+  font-size: 60px !important;
+  /* Doble !important para forzar */
+  line-height: 50px !important;
+}
+
+section.fiesta p.subtitle {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+
+section.fiesta .fiesta-flor-izq {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  max-width: 12%;
+}
+
+section.fiesta .container {
+  z-index: 999;
+  position: relative;
+}
+
+
+section.fiesta .anim-musica {
+  width: 75px;
+  margin: 15px auto 40px auto;
+}
+
+section.fiesta .anim-vestuario {
+  width: 95px;
+}
+
+section.fiesta .anim-tips {
+  width: 55px;
+}
+
+section.fiesta:after {
+  /* background-image: url('../img/img_ondas02.svg'); */
+  position: absolute;
+  content: '';
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 100%;
+  width: 100%;
+  bottom: -85px;
+  z-index: 99;
+}
+
+section.fiesta .item-fiesta {
+  margin-top: 60px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+
+section.fiesta .item-fiesta h3 {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-bold);
+  text-transform: uppercase;
+  font-size: 26px;
+  /* Aumentado de 22px */
+  margin-bottom: 20px;
+  /* Agregado espacio abajo */
+}
+
+section.fiesta .item-fiesta p {
+  color: var(--color-1);
+  margin-bottom: 25px;
+  /* Aumentado espacio abajo */
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-light);
+  font-size: 18px;
+  /* Texto más grande */
+  line-height: 1.6;
+  /* Mejor interlineado */
+  min-height: 80px;
+  /* Altura mínima para el texto */
+}
+
+section.fiesta .item-fiesta a.boton {
+  width: 85%;
+  padding: 20px 30px;
+  /* Botón más grande */
+  font-size: 18px;
+  /* Texto del botón más grande */
+  margin-top: 15px;
+  /* Espacio arriba del botón */
+}
+
+section.fiesta .item-fiesta .content-item-fiesta {
+  background-color: #fff;
+  padding: 50px 30px;
+  /* Más padding (era 40px 25px) */
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  min-height: 520px;
+  /* Aumentado de 480px a 520px (más largo) */
+  -webkit-box-shadow: 0px 0px 15px 0px #ececec;
+  box-shadow: 0px 0px 15px 0px #ececec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Distribuye el espacio mejor */
+}
+
+section.fiesta .content-anim-fiesta {
+  height: 100px;
+  /* Aumentado de 80px */
+  margin: 20px auto 10px auto;
+  /* Más margen vertical */
+}
+
+section.fiesta .item-fiesta .adorno {
+  position: absolute;
+  height: auto;
+}
+
+section.fiesta .item-fiesta .adorno.adorno-1 {
+  position: absolute;
+  top: -80px;
+  left: -20px;
+  z-index: 0;
+  width: 230px;
+}
+
+section.fiesta .item-fiesta .adorno.adorno-2 {
+  position: absolute;
+  top: -70px;
+  left: -30px;
+  z-index: 3;
+  width: 160px;
+}
+
+/* Media query para móviles - mantener proporciones */
+@media (max-width: 768px) {
+  section.fiesta .item-fiesta .content-item-fiesta {
+    min-height: 490px;
+    /* Un poco menos alto en móviles */
+    padding: 40px 25px;
+  }
+
+  section.fiesta .item-fiesta h3 {
+    font-size: 22px;
+  }
+
+  section.fiesta .item-fiesta p {
+    font-size: 18px;
+    min-height: 70px;
+  }
+
+  section.fiesta .content-anim-fiesta {
+    height: 80px;
+  }
+}
+
+
+
+/* Regalos */
+
+
+section.regalos {
+  padding-top: 14%;
+  position: relative;
+  padding-bottom: 10%;
+  background-color: var(--color-4);
+}
+
+section.regalos .adorno {
+  position: absolute;
+  height: auto;
+}
+
+section.regalos .adorno-1 {
+  position: absolute;
+  width: 180px;
+  top: 230px;
+  left: -2px;
+}
+
+section.regalos .adorno-2 {
+  position: absolute;
+  width: 195px;
+  top: 250px;
+  left: -1px;
+  z-index: 1;
+}
+
+section.regalos .adorno-3 {
+  position: absolute;
+  width: 190px;
+  top: 250px;
+  left: -2px;
+  z-index: 1;
+}
+
+section.regalos .title {
+  margin-bottom: 10px;
+
+}
+
+section.regalos .anim-regalos {
+  width: 70px;
+  margin: 1px auto 40px;
+}
+
+/* ---------- */
+
+
+/* Instagram */
+
+section.instagram {
+  padding-top: 16%;
+  padding-bottom: 16%;
+  /* background: url('../img/portada.jpg') center center; */
+  position: relative;
+}
+
+section.instagram {
+  padding-top: 16%;
+  padding-bottom: 16%;
+  /* background: url('../img/portada.jpg') center center; */
+  position: relative;
+}
+
+section.instagram .container {
+  position: relative;
+  z-index: 999;
+}
+
+
+section.instagram:before {
+  /* background-image: url('../img/img_ondas05.svg'); */
+  position: absolute;
+  content: '';
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 100%;
+  top: -1px;
+  /* background-color: rgba(178, 166, 209, 0.4); */
+}
+
+section.instagram .title {
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff;
+}
+
+section.instagram .subtitle {
+  color: #fff;
+}
+
+
+section.instagram .hashtag {
+  color: #fff;
+  text-transform: lowercase;
+  font-size: 55px;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-bold);
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+section.instagram .anim-instagram {
+  width: 60px;
+  margin: 0 auto 15px;
+}
+
+section.instagram:after {
+  /* background-image: url('../img/img_ondas06.svg'); */
+  position: absolute;
+  content: '';
+  /* background-size: contain !important; */
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 100%;
+  width: 100%;
+  bottom: -70px;
+  z-index: 99;
+}
+
+
+
+/* ---------- */
+
+
+
+/* ======================= */
+/* ESTILOS FOOTER GENERAL */
+/* ======================= */
+
+section.footer {
+  position: relative;
+  padding: 60px 0;
+  background-color: var(--color-4);
+}
+
+/* Asegurar que la fila esté centrada verticalmente */
+section.footer .row {
+  min-height: 400px;
+  /* Altura mínima para que se vea bien centrado */
+}
+
+/* Estilos para el box-nombres-fecha-portada en el footer */
+section.footer .box-nombres-fecha-portada {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Para escritorio: alinear a la izquierda */
+@media (min-width: 992px) {
+  section.footer .col-nombres-footer .box-nombres-fecha-portada {
+    text-align: left;
+    margin: 0;
+  }
+
+  section.footer .col-nombres-footer .box-nombres-fecha-portada h1,
+  section.footer .col-nombres-footer .box-nombres-fecha-portada h2 {
+    text-align: left;
+  }
+
+  section.footer .col-nombres-footer .wrapper-nombre {
+    justify-content: flex-start;
+  }
+}
+
+section.footer .box-nombres-fecha-portada #fecha {
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+  font-family: var(--fuente-1);
+  font-size: 24px;
+  line-height: 20px;
+  color: var(--color-3);
+  padding: 8px 25px 10px;
+  margin-bottom: 30px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, var(--color-4), var(--color-3), var(--color-4));
+}
+
+section.footer .box-nombres-fecha-portada h1 {
+  width: 100%;
+  font-family: var(--fuente-1);
+  text-transform: uppercase;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 60px;
+  line-height: 65px;
+  margin-bottom: 0;
+  color: var(--color-1);
+  position: relative;
+  z-index: 2;
+}
+
+section.footer .box-nombres-fecha-portada h2 {
+  width: 100%;
+  font-family: var(--fuente-1);
+  text-transform: inherit;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 36px;
+  line-height: 65px;
+  margin-bottom: 0;
+  color: var(--color-3);
+}
+
+section.footer .wrapper-nombre {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+section.footer .fondo-apertura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 350px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Estilos para la columna de acciones */
+section.footer .col-acciones-footer {
+  padding: 20px 0;
+}
+
+section.footer .col-acciones-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* Para escritorio: alinear a la derecha */
+@media (min-width: 992px) {
+  section.footer .col-acciones-footer ul {
+    text-align: right;
+  }
+}
+
+section.footer .col-acciones-footer ul li {
+  margin-bottom: 20px;
+}
+
+section.footer .col-acciones-footer ul li:last-child {
+  margin-bottom: 0;
+}
+
+section.footer .col-acciones-footer ul a,
+section.footer .col-acciones-footer .addeventatc span.nameBtn {
+  color: var(--color-3);
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+section.footer .col-acciones-footer ul a:hover,
+section.footer .col-acciones-footer .addeventatc span.nameBtn:hover {
+  color: var(--color-2) !important;
+  text-decoration: none;
+  transform: translateX(5px);
+}
+
+/* Estilo para el botón de AddEvent */
+section.footer .col-acciones-footer .addeventatc {
+  cursor: pointer;
+}
+
+section.footer .col-acciones-footer .addeventatc .start,
+section.footer .col-acciones-footer .addeventatc .end,
+section.footer .col-acciones-footer .addeventatc .timezone,
+section.footer .col-acciones-footer .addeventatc .title {
+  display: none !important;
+}
+
+/* ======================= */
+/* MEDIA QUERIES RESPONSIVE */
+/* ======================= */
+
+/* Para móviles y tablets */
+@media (max-width: 991px) {
+  section.footer {
+    padding: 40px 0;
+  }
+
+  section.footer .row {
+    min-height: auto;
+  }
+
+  section.footer .box-nombres-fecha-portada {
+    max-width: 400px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
+    font-size: 20px;
+    padding: 6px 20px 8px;
+    margin-bottom: 25px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 30px;
+    line-height: 52px;
+  }
+
+  section.footer .fondo-apertura {
+    max-width: 280px;
+  }
+
+  section.footer .col-acciones-footer {
+    margin-top: 30px;
+  }
+}
+
+/* Para tablets pequeñas */
+@media (max-width: 768px) {
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 26px;
+    line-height: 44px;
+  }
+
+  section.footer .col-acciones-footer ul a,
+  section.footer .col-acciones-footer .addeventatc span.nameBtn {
+    font-size: 18px;
+  }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 576px) {
+  section.footer {
+    padding: 30px 0;
+  }
+
+  section.footer .box-nombres-fecha-portada {
+    padding: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
+    font-size: 18px;
+    padding: 5px 15px 7px;
+    margin-bottom: 20px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  section.footer .fondo-apertura {
+    max-width: 240px;
+  }
+
+  section.footer .col-acciones-footer ul li {
+    margin-bottom: 15px;
+  }
+
+  section.footer .col-acciones-footer ul a,
+  section.footer .col-acciones-footer .addeventatc span.nameBtn {
+    font-size: 16px;
+  }
+}
+
+/* Para pantallas grandes (escritorio) */
+@media (min-width: 992px) {
+  section.footer .box-nombres-fecha-portada {
+    padding-right: 40px;
+  }
+
+  section.footer .col-acciones-footer {
+    padding-left: 40px;
+  }
+
+  /* Ajustar el tamaño de fuente en escritorio */
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 70px;
+    line-height: 75px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 40px;
+    line-height: 75px;
+  }
+}
+
+/* Para pantallas extra grandes */
+@media (min-width: 1200px) {
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 80px;
+    line-height: 85px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 45px;
+    line-height: 85px;
+  }
+}
+
+/* ---------- */
+
+
+/* Musica de fondo */
+
+#player-musica-fondo {
+  position: absolute;
+  left: -99999px;
+}
+
+#controlador-musica {
+  position: fixed;
+  z-index: 999;
+  top: 10px;
+  right: 0;
+}
+
+.music-anim-icon {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+/* ---------- */
+
+
+/* Footer */
+
+footer {
+  background-color: var(--color-2);
+  font-family: var(--fuente-2);
+  font-weight: 400;
+  padding: 20px 0;
+}
+
+
+
+/* ---------- */
+
+
+/* Firma */
+
+footer p {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 1rem;
+  color: #fff;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-light)
+}
+
+footer p a {
+  color: #fff;
+  font-size: 14px;
+  display: inline-flex;
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+  color: var(--color-4)
+}
+
+footer img.firma-footer {
+  width: 65px;
+  height: auto;
+}
+
+
+
+/* ---------- */
+
+
+.modal-dialog {
+  font-family: var(--fuente-2);
+}
+
+.modal-dialog .modal-title {
+  font-weight: 700;
+  color: var(--color-4);
+}
+
+.modal-dialog form label {
+  color: var(--color-2);
+  font-family: var(--fuente-2);
+}
+
+.modal-dialog form input,
+.modal-dialog form textarea {
+  border: none;
+  border-bottom: 1px solid var(--color-4);
+}
+
+.modal-dialog .white-circle-icon {
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: -75px;
+}
+
+.modal-dialog ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--color-2);
+  opacity: 1;
+  font-family: var(--fuente-2);
+  /* Firefox */
+}
+
+.modal-dialog :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--color-2);
+  font-family: var(--fuente-2);
+}
+
+.modal-dialog ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--color-2);
+  font-family: var(--fuente-2);
+}
+
+
+/* Modal Musica */
+
+#modalMusica .modal-content {
+  background: transparent;
+  border: none;
+  font-family: var(--fuente-1);
+  font-weight: var(--weight-font-regular);
+  border-radius: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#modalMusica .modal-content p {
+  text-align: center;
+  font-family: var(--fuente-1);
+  text-transform: uppercase;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 80px;
+  line-height: 85px;
+  color: var(--color-1);
+  width: 100%;
+}
+
+#modalMusica .modal-content h3 {
+  text-align: center;
+  font-family: var(--fuente-1);
+  text-transform: uppercase;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 80px;
+  line-height: 85px;
+  color: var(--color-1);
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin-bottom: 0;
+  background: var(--pathSVG) center center no-repeat;
+  background-size: 160px;
+}
+
+
+#modalMusica .modal-content p span {
+  font-size: 30px;
+  line-height: 30px;
+  font-family: var(--fuente-2);
+  color: var(--color-3);
+  text-transform: initial;
+}
+
+#modalMusica .modal-content span.aclara-musica {
+  font-size: 20px;
+  color: var(--color-3);
+  font-weight: 300;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  display: inline-block;
+  width: 100%;
+  font-family: var(--fuente-2);
+  font-weight: var(--weight-font-regular);
+}
+
+#modalMusica .boton {
+  font-size: 15px;
+  border: 1px solid var(--color-3);
+  display: inline-block;
+  text-transform: inherit;
+}
+
+#modalMusica .boton:hover {
+  border: 1px solid var(--color-3);
+  background-color: var(--color-4);
+  color: var(--color-3)
+}
+
+
+#modalMusica .adorno {
+  width: 340px;
+  height: auto;
+}
+
+#modalMusica .adorno.adorno-1 {
+  border-bottom: 1px solid var(--color-2);
+}
+
+#modalMusica .adorno.adorno-2 {
+  border-top: 1px solid var(--color-2);
+  margin-top: 45px;
+}
+
+
+/* Modales */
+
+.modal .modal-content {
+  text-align: center;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: 0px 0px 15px 0px #444;
+  box-shadow: 0px 0px 15px 0px #444;
+
+}
+
+.modal .modal-content-2 {
+  position: relative;
+  border: double 2px transparent;
+  background-image: linear-gradient(var(--color-1), var(--color-1)), radial-gradient(circle at bottom left, var(--color-6), var(--color-7), var(--color-8));
+  background-origin: border-box;
+  background-clip: content-box,
+    border-box;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+
+.modal .modal-content-2 p {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+}
+
+.modal .modal-content-2 .img-top-modal {
+  position: relative;
+  height: 70px;
+}
+
+.modal .modal-content-2 .close {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 37px;
+  background-color: var(--color-2);
+  opacity: 1;
+  outline: none;
+  font-size: 34px;
+  font-weight: normal;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.50);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.50);
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.50);
+
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+
+}
+
+.modal .modal-content-2 .close:hover {
+  background-color: var(--color-1);
+  opacity: 1;
+}
+
+.modal .modal-content-2 .close span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.modal .modal-content-2 .modal-header {
+  border: none;
+  display: inline-block;
+  padding: 0;
+}
+
+.modal .modal-content-2 .modal-header .modal-title {
+  font-size: 35px;
+  font-family: var(--fuente-1);
+  color: var(--color-3);
+}
+
+.modal .modal-content-2 .modal-footer {
+  border: none;
+  display: inline-block;
+  padding: 0;
+}
+
+
+.modal .modal-content-2 .boton {
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.modal .modal-content-2 .img-top-modal img {
+  width: 100%;
+  margin-top: 0;
+}
+
+.modal .modal-content-2 .adorno {
+  position: absolute;
+  height: auto;
+}
+
+.modal .modal-content-2 .adorno-1 {
+  position: absolute;
+  width: 80%;
+  max-width: 390px;
+  top: -180px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -1;
+}
+
+#modalMapa .modal-content-2 .adorno-1 {
+  top: -170px;
+}
+
+
+/* Modal Confirmar asistencia*/
+
+#formAsistencia .form-group.d-flex {
+  gap: 20px !important;
+}
+
+#modalAsistencia input,
+#modalAsistencia textarea {
+  text-align: center;
+  background: none;
+  resize: none;
+  outline: none;
+  padding-bottom: 3px;
+}
+
+#modalAsistencia input:focus,
+#modalAsistencia textarea:focus {
+  border: none;
+  box-shadow: none;
+}
+
+#formAsistencia .form-group .form-check {
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#formAsistencia .form-group .form-check label {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+#modalAsistencia .form-control {
+  font-size: 15px;
+}
+
+
+
+/* Modal Sugerir cancion */
+
+#modalSugerirCancion input {
+  text-align: center;
+  background: none;
+  resize: none;
+  outline: none;
+  padding-bottom: 5px;
+}
+
+#modalSugerirCancion input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+
+#modalSugerirCancion .form-control {
+  font-size: 15px;
+}
+
+/* ---------- */
+
+
+/* Modal Vestuario */
+
+
+
+/* ---------- */
+
+
+
+/* Modal Tips */
+
+
+/* ---------- */
+
+
+
+
+/* Modal Regalos */
+
+
+/* ---------- */
+
+
+
+
+/* Modal Como llegar */
+
+#modalMapa .modal-content-2 .img-top-modal {
+  height: 10px;
+}
+
+/* ======================= */
+/* AJUSTES ESPECÍFICOS PARA EL IFRAME DEL MAPA */
+/* ======================= */
+
+#modalMapa .modal-body {
+  padding: 0 !important;
+  /* Eliminar padding para que iframe ocupe todo */
+  height: 400px;
+  /* Altura fija para escritorio */
+  display: flex;
+  flex-direction: column;
+}
+
+#modalMapa iframe {
+  width: 100% !important;
+  height: 100% !important;
+  /* Que ocupe todo el espacio disponible */
+  border: 0;
+  flex-grow: 1;
+  /* Para que se expanda */
+}
+
+/* Para móviles - que ocupe más espacio */
+@media (max-width: 768px) {
+  #modalMapa .modal-dialog {
+    margin: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+
+  #modalMapa .modal-body {
+    height: 300px;
+    /* Altura más pequeña para móviles */
+  }
+
+  #modalMapa .modal-content {
+    max-height: 85vh;
+    /* Limitar altura máxima en móviles */
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  #modalMapa .modal-body {
+    height: 250px;
+    /* Aún más pequeña en móviles muy pequeños */
+  }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 992px) {
+  #modalMapa .modal-body {
+    height: 450px;
+    /* Más altura en pantallas grandes */
+  }
+}
+
+/* ---------- */
+
+
+/* Modal de mensaje exito */
+
+.modal-body.fix-height {
+  height: 70%;
+  margin-top: -35px;
+}
+
+.modal-body.fix-height .msj-content {
+  height: 100%;
+}
+
+.modal .msj-content {
+  width: 100%;
+}
+
+.modal .msj-content h5 {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-1)
+}
+
+.modal .msj-content p {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  color: var(--color-1)
+}
+
+
+/* ---------- */
+
+
+
+
+#googleMap,
+#googleMapIframe {
+  height: 450px;
+  width: 100%;
+  border: 0;
+}
+
+/* Loader del mapa */
+.map-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.map-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.map-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(198, 215, 207, 0.2);
+  border-top-color: #ddd;
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#modalMapa .modal-body {
+  position: relative;
+  min-height: 450px;
+}
+
+
+/* Banner para redirigir a la web */
+.banner-contacto-web {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: var(--color-1);
+  z-index: 9999;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-contacto-web p {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 8px 8px;
+  font-family: var(--fuente-2);
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 13px;
+}
+
+.banner-contacto-web a {
+  color: #FFF;
+}
+
+.banner-contacto-web a:first-child {
+  background: #fff;
+  color: var(--color-1);
+  border-radius: 10px;
+  padding: 3px 10px;
+}
+
+.banner-contacto-web a:first-child:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--color-2);
+}
+
+
+/* Estilos card de invitados */
+.bloque-grupo-invitados {
+  padding: 0px 0 50px;
+  background-color: var(--color-4);
+}
+
+.bloque-grupo-invitados .card-grupo-invitados .card-content {
+  text-align: center;
+}
+
+.bloque-grupo-invitados .pases-total {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+  line-height: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--color-1);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: var(--fuente-1);
+  color: var(--color-4);
+}
+
+.bloque-grupo-invitados .titulo-grupo {
+  margin: 0;
+  font-size: 40px;
+  font-family: var(--fuente-1);
+  color: var(--color-3);
+}
+
+.bloque-grupo-invitados .mensaje-grupo {
+  margin: 0 0 10px 0;
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+}
+
+.bloque-grupo-invitados .lista-invitados {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 12px 0;
+  font-family: var(--fuente-2);
+}
+
+.bloque-grupo-invitados .invitado-item {
+  display: block;
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  margin: 6px auto;
+  width: fit-content;
+}
+
+.bloque-grupo-invitados .acompanantes-info {
+  margin-top: 6px;
+  font-size: 17px;
+  color: var(--color-5);
+  font-family: var(--fuente-2);
+}
+
+/* end Estilos card de invitados */
+
+
+/* --- Ajustes personalizados: ola separadora y fixes responsive --- */
+
+/* Permitir que el separador se superponga en la portada */
+.portada-con-espacio {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 0 !important;
+}
+
+.ola-separador {
+  display: block;
+  position: absolute;
+  /* posicionar relativo a .portada-con-espacio */
+  bottom: 200px;
+  /* pegar al borde inferior de la portada */
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  z-index: 100;
+  /* encima de la foto, por debajo del contenido (content-portada z-index:999) */
+  pointer-events: none;
+  object-fit: cover;
+}
+
+/* Mobile adjustments: hide duplicate portada pseudo-onda and recentrar adornos */
+@media (max-width: 768px) {
+  section.portada::after {
+    display: none;
+  }
+
+  /* En móvil la ola debe superponerse y "tapar" el inicio de la siguiente sección */
+  .ola-separador {
+    position: absolute;
+    /* relativo a .portada-con-espacio */
+    top: 200px;
+    /* superponer hacia abajo para cubrir el inicio de la siguiente sección */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    transform: translateY(0);
+  }
+
+  /* Posicionar las flores sobre la ola en móvil: esquinas y centro decorativo */
+  section.portada .adorno-1,
+  section.portada .adorno-2,
+  section.portada .adorno-3 {
+    position: absolute !important;
+    z-index: 150 !important;
+    /* por encima de .ola-separador (100) */
+    pointer-events: none !important;
+  }
+
+  /* Colocar adorno-3 (tipo C) a la izquierda y A/B a la derecha, todos encima de la ola */
+  section.portada .adorno-3 {
+    left: 4% !important;
+    bottom: -10px !important;
+    width: 30% !important;
+    max-width: 170px !important;
+  }
+
+  section.portada .adorno-1,
+  section.portada .adorno-2 {
+    right: 4% !important;
+    bottom: -10px !important;
+    width: 30% !important;
+    max-width: 170px !important;
+  }
+
+  section.ceremonia-fiesta .adorno-1,
+  section.ceremonia-fiesta .adorno-2,
+  section.ceremonia-fiesta .adorno-3,
+  section.regalos .adorno-1,
+  section.regalos .adorno-2,
+  section.regalos .adorno-3,
+  section.fiesta .item-fiesta .adorno,
+  section.portada .adorno-1,
+  section.portada .adorno-2,
+  section.portada .adorno-3 {
+    position: relative !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 auto !important;
+    width: 60% !important;
+    max-width: 320px !important;
+    z-index: 110 !important;
+  }
+
+  section.fiesta h2.title {
+    font-size: 45px !important;
+    /* Doble !important para forzar */
+    line-height: 50px !important;
+  }
+
+  section.regalos h2.title {
+    font-size: 45px !important;
+    /* Doble !important para forzar */
+    line-height: 50px !important;
+  }
+
+  section.regalos p.subtitle {
+    font-size: 20px !important;
+    /* Doble !important para forzar */
+    line-height: 1.5 !important;
+  }
+
+
+
+}
+
+/* Flores contador: asegurar visibilidad y adaptar contenido dentro del círculo */
+section.cuenta-regresiva .box-aros {
+  width: 100% !important;
+  top: -120px !important;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+section.ceremonia-fiesta .titulo-fiesta {
+  font-size: 100px;
+}
+
+section.cuenta-regresiva .box-aros .box-circulo {
+  width: 320px !important;
+  height: 320px !important;
+  max-width: 90%;
+  padding: 12px !important;
+  margin: 0 auto;
+}
+
+section.cuenta-regresiva .adorno-1 {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: -10px !important;
+  width: 55% !important;
+  max-width: 260px !important;
+  z-index: 120 !important;
+}
+
+section.cuenta-regresiva .box-aros {
+  z-index: 200 !important;
+}
+
+/* Ocultar pseudo-onda globalmente para evitar duplicados */
+section.portada::after {
+  display: none !important;
+}
+
+/* Forzar que el contenedor de la imagen permita que la wave la tape visualmente */
+section.portada .portada-picture {
+  overflow: visible;
+}

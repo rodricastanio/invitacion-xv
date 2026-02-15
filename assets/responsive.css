@@ -1,0 +1,603 @@
+/* Mobile */
+@media only screen and (max-width: 767px) {
+
+  #modalMusica .modal-content p {
+    font-size: 50px;
+    line-height: 45px;
+    background-size: 125px;
+    background-position-y: 70px;
+    padding-bottom: 0;
+  }
+
+  #modalMusica .modal-content p span {
+    font-size: 20px;
+    display: inline-block;
+    padding-bottom: 0;
+  }
+
+  #modalMusica .modal-content .boton {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+  }
+
+  #modalMusica .adorno {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  #modalMusica .adorno.adorno-2 {
+    margin-top: 20px;
+  }
+
+  #modalMusica .modal-content span.aclara-musica {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .title {
+    font-size: 45px;
+    line-height: 50px;
+    padding: 0 15px;
+    margin-bottom: 0;
+  }
+
+  .subtitle {
+    font-size: 19px;
+    padding: 0 15px;
+    margin-top: 25px;
+  }
+
+  section.portada .content-portada h1 {
+    font-size: 55px;
+    line-height: 65px;
+  }
+
+  section.portada .box-nombres-fecha-portada {
+    background-size: 170px;
+    background-position-y: 65px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+  }
+
+  section.portada .portada-picture {
+    width: 100%;
+    height: 530px;
+    position: relative;
+  }
+
+  section.portada .portada-picture::after {
+    display: none;
+    /* Ocultar el fondo de ola viejo */
+  }
+
+  /* Mostrar las flores A/B/C sobre la ola en móvil; solo ocultar adorno-4 si existe */
+  section.portada .adorno-4 {
+    display: none;
+  }
+
+  section.portada .portada-container .row.d-flex {
+    height: auto !important;
+    padding: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  section.portada .portada-container {
+    width: 100%;
+    padding-bottom: 0;
+    margin-top: -200px;
+    position: relative;
+    z-index: 90;
+  }
+
+  section.cuenta-regresiva .box-aros {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* Mantener proporcion cuadrada */
+    top: 50px
+  }
+
+  section.cuenta-regresiva .adorno-1 {
+    position: absolute;
+    width: 235px;
+    top: 0px;
+    left: 20px;
+  }
+
+  section.portada .box-nombres-fecha-portada h1 span {
+    font-size: 70px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  section.portada .content-portada span.fecha:before {
+    right: -40px;
+  }
+
+  section.portada .content-portada span.fecha:after {
+    left: -40px;
+  }
+
+  section.portada .content-portada {
+    width: 95%;
+  }
+
+  section.portada .content-portada span.fecha {
+    font-size: 25px;
+    margin-bottom: 35px;
+    margin-top: 0
+  }
+
+  #modalMusica .modal-content h3 {
+    font-size: 50px;
+  }
+
+  section.portada .box-frase-portada p {
+    font-size: 20px;
+  }
+
+  section.portada .box-frase-portada {
+    margin-top: 25px;
+    margin-bottom: 55px
+  }
+
+  section.portada::after {
+    display: none;
+  }
+
+  ul.lang-inv {
+    top: -60px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo span.falta {
+    font-size: 45px;
+    margin-top: 10px;
+  }
+
+  section.cuenta-regresiva .reloj-col span.number {
+    font-size: 35px;
+  }
+
+  /* Footer Replicating Portada Styles for Mobile */
+  section.footer .box-nombres-fecha-portada {
+    background-size: 170px;
+    background-position-y: 65px;
+    padding-bottom: 20px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 50px;
+    line-height: 65px;
+    margin-top: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 span {
+    font-size: 70px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 50px !important;
+    line-height: 28px !important;
+    margin-top: 30px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
+    font-size: 30px;
+    margin-bottom: 35px;
+    margin-top: 0;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha:before {
+    right: -40px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha:after {
+    left: -40px;
+  }
+
+  section.footer .box-nombres-fecha-portada .wrapper-nombre img {
+    width: 140%;
+    /* O 130%, 140%, etc. */
+    max-width: none;
+    /* Elimina cualquier limitación */
+  }
+
+  section.footer .col-nombres-footer {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 30px 0;
+  }
+
+  section.footer .col-acciones-footer {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  section.footer .col-acciones-footer ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  section.cuenta-regresiva .reloj-col span.time {
+    font-size: 18px;
+  }
+
+  section.footer .col-acciones-footer ul a,
+  section.footer .addeventatc span.nameBtn {
+    font-size: 18px;
+  }
+
+
+  section.cuenta-regresiva .box-aros .box-circulo {
+    padding: 28px 20px;
+    height: 270px;
+    width: 270px;
+    max-width: 350px;
+  }
+
+  section.ceremonia-fiesta .col-ceremonia h3,
+  section.ceremonia-fiesta .col-fiesta h3 {
+    padding: 8px 30px;
+    font-size: 40px
+  }
+
+  section.ceremonia-fiesta .col-ceremonia .anim-anillos,
+  section.ceremonia-fiesta .anim-fiesta {
+    width: 40%;
+    height: auto;
+  }
+
+  section.ceremonia-fiesta .adorno-1 {
+    position: absolute;
+    width: 80px;
+    top: 575px;
+    left: -1px;
+  }
+
+  section.ceremonia-fiesta .adorno-2 {
+    position: absolute;
+    width: 85px;
+    top: 575px;
+    left: -1px;
+  }
+
+  section.ceremonia-fiesta .adorno-3 {
+    position: absolute;
+    width: 90px;
+    top: 575px;
+    left: -1px;
+  }
+
+  section.instagram {
+    padding-top: 35%;
+    padding-bottom: 50%;
+  }
+
+  section.instagram .title {
+    font-size: 40px;
+  }
+
+
+
+  section.regalos {
+    padding: 120px 0;
+  }
+
+  section.fiesta {
+    padding-bottom: 35%;
+    padding-top: 45%;
+    background-position-y: 50px;
+  }
+
+  section.fiesta .subtitle {
+    padding-bottom: 50px;
+  }
+
+  section.fiesta .item-fiesta .adorno.adorno-1 {
+    position: absolute;
+    top: -75px;
+    left: 5px;
+    z-index: 0;
+    width: 185px;
+  }
+
+  section.fiesta .item-fiesta .adorno.adorno-2 {
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    z-index: 3;
+    width: 110px;
+  }
+
+
+  section.ceremonia-fiesta {
+    padding-bottom: 35%;
+    background-position: center 70px;
+    margin-top: 80px
+  }
+
+  section.galeria {
+    padding-top: 70px;
+  }
+
+  #modalMapa .modal-header .modal-title {
+    font-size: 25px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+
+  #modalMapa .modal-content-2 .adorno-1 {
+    top: -125px;
+  }
+
+  section.ceremonia-fiesta .info-col .info-box a.boton {
+    min-width: 80%;
+  }
+
+  section.fiesta .fiesta-flor-izq {
+    max-width: 25%;
+  }
+
+  /* Responsive fixes */
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  section.fiesta:after {
+    bottom: -35px;
+  }
+
+  section.instagram:before {
+    top: -2px;
+  }
+
+  section.instagram .hashtag {
+    font-size: 40px;
+  }
+
+  section.instagram:after {
+    bottom: 0;
+  }
+
+  section.fiesta .item-fiesta a.boton {
+    min-width: 100%
+  }
+
+  #controlador-musica {
+    top: initial;
+    bottom: 0;
+    right: 0;
+  }
+
+
+  section.fiesta .item-fiesta .flores3 {
+    position: absolute;
+    /* ¡ESTO ES ESENCIAL! */
+    width: 200px;
+    top: -80px;
+    left: 0px;
+    /* Corregí -0px a 0px */
+    z-index: 10;
+    /* Para que esté sobre otros elementos */
+  }
+
+  .music-anim-icon {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  section.footer .col-acciones-footer ul li {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  section.cuenta-regresiva {
+    height: 330px
+  }
+
+  section.ceremonia-fiesta:after {
+    bottom: -2px;
+  }
+
+  section.regalos .adorno-1 {
+    position: absolute;
+    width: 80px;
+    top: 300px;
+    left: -1px;
+  }
+
+  section.regalos .adorno-2 {
+    position: absolute;
+    width: 85px;
+    top: 300px;
+    left: -1px;
+  }
+
+  section.regalos .adorno-3 {
+    position: absolute;
+    width: 90px;
+    top: 300px;
+    left: -1px;
+  }
+
+  .modal-dialog .white-circle-icon {
+    top: -80px;
+  }
+
+  .modal .modal-content-2 .adorno-2 {
+    position: absolute;
+    width: 95px;
+    top: -39px;
+    left: -30px;
+  }
+
+  .modal .modal-content-2 .adorno-1 {
+    position: absolute;
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    top: -140px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+  }
+
+  .modal .modal-content-2 .modal-header .modal-title {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: var(--fuente-1);
+    font-weight: var(--grosor-fuente-regular);
+  }
+
+  .flags-laguages {
+    padding: 5px;
+  }
+
+  .flags-laguages {
+    padding: 5px;
+  }
+
+  /* Flores Grupo02: superponer las 3 imágenes sobre la ola */
+  .flores-grupo02-wrapper {
+    display: block !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    /* Posición sobre la ola - ajusta este valor */
+    width: 85% !important;
+    max-width: 280px !important;
+    z-index: 200 !important;
+    pointer-events: none;
+  }
+
+  /* Las 3 imágenes superpuestas en la misma posición */
+  .flores-grupo02-wrapper picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* La primera imagen da altura al contenedor */
+  .flores-grupo02-wrapper picture:first-of-type {
+    position: relative;
+    /* Esto da altura al wrapper */
+    z-index: 3;
+  }
+
+  .flores-grupo02-wrapper picture:nth-of-type(2) {
+    z-index: 2;
+  }
+
+  .flores-grupo02-wrapper picture:nth-of-type(3) {
+    z-index: 1;
+  }
+
+  .flores-grupo02-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Ajustar la posición de la ola para que esté debajo */
+  .ola-separador {
+    position: absolute;
+    bottom: 200px;
+    z-index: 100;
+    width: 100%;
+  }
+
+  /* Ajuste de z-index individual para las capas de flores */
+  /* NOTA: Al ser siblings absolutos, el ultimo en el DOM esta arriba por defecto salvo z-index */
+  /* La estructura es picture > img. Aplicamos z-index al picture para apilarlos */
+
+  /* CAMBIO: Hacemos TODOS absolute. Para que el wrapper tenga altura, necesitamos height o algo. 
+     Pero como son imagenes decorativas, el wrapper puede tener dimension basada en width y height auto?
+     Si todos los hijos son absolute, el wrapper height colapsa a 0.
+     Solucion: Hacemos la primera imagen (picture) RELATIVE para que de cuerpo al wrapper, 
+     y las otras ABSOLUTE 'pegadas' a ella. 
+  */
+
+  .flores-grupo02-wrapper picture:nth-of-type(1) {
+    position: relative;
+    /* Esta da la altura */
+    z-index: 30;
+  }
+
+  .flores-grupo02-wrapper picture:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+  }
+
+  .flores-grupo02-wrapper picture:nth-of-type(3) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .flores-grupo02-wrapper .flores-grupo02 {
+    /* Reset de estilos previos */
+    position: static;
+    width: 100%;
+  }
+
+  /* Eliminar selectores viejos si molestan */
+  .flores-grupo02-wrapper .flores-A,
+  .flores-grupo02-wrapper .flores-B,
+  .flores-grupo02-wrapper .flores-C {
+    position: static;
+    z-index: auto;
+  }
+
+}
+
+/* Gallery fixes for mobile */
+@media only screen and (max-width: 767px) {
+  .carrusel {
+    padding: 0 10px;
+  }
+
+  .carrusel .polaroid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carrusel .polaroid img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+}
