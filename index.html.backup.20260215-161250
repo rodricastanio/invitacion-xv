@@ -109,7 +109,11 @@
 <div id="pantalla-bienvenida">
   <div class="bienvenida-contenido">
     <!-- Adorno superior -->
-    
+    <div class="bienvenida-adorno">
+      <svg width="50" height="50" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z" fill="var(--color-3)" />
+      </svg>
+    </div>
 
     <h1 class="bienvenida-titulo">
       <span class="bienvenida-bienvenidos">Bienvenidos</span>
@@ -117,11 +121,16 @@
       <span class="bienvenida-nombre">Delfina</span>
     </h1>
 
-    <p class="bienvenida-texto">Presioná "Empezar" para<br>ingresar</p>
+    <p class="bienvenida-texto">Presioná "Empezar" para<br>ingresar y activar la música.</p>
 
     <button id="btn-empezar" class="boton">Empezar</button>
 
-   
+    <!-- Adorno inferior -->
+    <div class="bienvenida-adorno abajo">
+      <svg width="50" height="50" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-1.1369999647140503,15.593999862670898 C-0.7720000147819519,15.741999626159668 -0.38600000739097595,15.815999984741211 0.0010000000474974513,15.815999984741211 C0.3869999945163727,15.815999984741211 0.7730000019073486,15.741999626159668 1.1369999647140503,15.593999862670898 C1.8550000190734863,15.300999641418457 18.725000381469727,8.284000396728516 18.725000381469727,-4.073999881744385 C18.725000381469727,-10.550000190734863 13.385000228881836,-15.815999984741211 6.820000171661377,-15.815999984741211 C4.349999904632568,-15.815999984741211 1.9789999723434448,-15.067000389099121 0.0010000000474974513,-13.70199966430664 C-1.9780000448226929,-15.067000389099121 -4.348999977111816,-15.815999984741211 -6.817999839782715,-15.815999984741211 C-13.383999824523926,-15.815999984741211 -18.725000381469727,-10.550000190734863 -18.725000381469727,-4.073999881744385 C-18.725000381469727,8.284000396728516 -1.8550000190734863,15.300999641418457 -1.1369999647140503,15.593999862670898z" fill="var(--color-3)" />
+      </svg>
+    </div>
   </div>
 </div>
 <!-- ======================= -->
@@ -1625,120 +1634,261 @@
         });
 
         // Funcionalidad para copiar al portapapeles
-        // Función para copiar texto al portapapeles
-        function copiarAlPortapapeles(texto) {
-          navigator.clipboard.writeText(texto).then(function () {
-            console.log('Texto copiado: ' + texto);
-            return true;
-          }).catch(function (err) {
-            console.error('Error al copiar: ', err);
-            // Fallback para navegadores más antiguos
-            var textArea = document.createElement("textarea");
-            textArea.value = texto;
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-              document.execCommand('copy');
-              console.log('Texto copiado con fallback');
+        $(document).ready(function () {
+          // Función para copiar texto al portapapeles
+          function copiarAlPortapapeles(texto) {
+            navigator.clipboard.writeText(texto).then(function () {
+              console.log('Texto copiado: ' + texto);
               return true;
-            } catch (err) {
-              console.error('Fallback también falló: ', err);
-              return false;
-            } finally {
-              document.body.removeChild(textArea);
+            }).catch(function (err) {
+              console.error('Error al copiar: ', err);
+              // Fallback para navegadores más antiguos
+              var textArea = document.createElement("textarea");
+              textArea.value = texto;
+              document.body.appendChild(textArea);
+              textArea.focus();
+              textArea.select();
+              try {
+                document.execCommand('copy');
+                console.log('Texto copiado con fallback');
+                return true;
+              } catch (err) {
+                console.error('Fallback también falló: ', err);
+                return false;
+              } finally {
+                document.body.removeChild(textArea);
+              }
+            });
+          }
+
+          // Evento para botones de copiar en el modal de regalos
+          $(document).on('click', '#modalRegalos .btn-copiar', function (e) {
+            e.preventDefault();
+            var texto = $(this).data('text');
+            var tipo = $(this).data('tipo');
+
+            if (copiarAlPortapapeles(texto)) {
+              // Mostrar mensaje de confirmación
+              var mensaje = $('#modalRegalos #mensaje-copiado');
+              mensaje.text(tipo === 'alias' ? '¡Alias copiado!' : '¡CBU copiado!');
+              mensaje.fadeIn(300);
+
+              // Ocultar mensaje después de 2 segundos
+              setTimeout(function () {
+                mensaje.fadeOut(300);
+              }, 2000);
+
+              // Cambiar temporalmente el texto del botón
+              var boton = $(this);
+              var textoOriginal = boton.html();
+              boton.html('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>Copiado');
+              boton.css('background-color', 'var(--color-5)');
+
+              // Restaurar después de 1.5 segundos
+              setTimeout(function () {
+                boton.html(textoOriginal);
+                boton.css('background-color', '');
+              }, 1500);
             }
           });
-        }
 
-        // Evento para botones de copiar en el modal de regalos
-        $(document).on('click', '#modalRegalos .btn-copiar', function (e) {
-          e.preventDefault();
-          var texto = $(this).data('text');
-          var tipo = $(this).data('tipo');
+          // Asegurar que el modal esté listo
+          $('#modalRegalos').on('shown.bs.modal', function () {
+            // Resetear mensaje cuando se abre el modal
+            $('#modalRegalos #mensaje-copiado').hide();
+          });
+        });
 
-          if (copiarAlPortapapeles(texto)) {
-            // Mostrar mensaje de confirmación
-            var mensaje = $('#modalRegalos #mensaje-copiado');
-            mensaje.text(tipo === 'alias' ? '¡Alias copiado!' : '¡CBU copiado!');
-            mensaje.fadeIn(300);
+        // LÓGICA DE MÚSICA Y BOTÓN EMPEZAR
+        $(document).ready(function () {
+          // =====================================
+          // LÓGICA PARA PANTALLA DE BIENVENIDA Y MÚSICA
+          // =====================================
+          const pantallaBienvenida = document.getElementById('pantalla-bienvenida');
+          const btnEmpezar = document.getElementById('btn-empezar');
+          const audioElement = document.getElementById('cancion');
+          const musicButton = document.getElementById('play-pause-music');
+          const playMusicModalButton = document.getElementById('play-music-modal');
+          const audio = audioElement;
 
-            // Ocultar mensaje después de 2 segundos
-            setTimeout(function () {
-              mensaje.fadeOut(300);
-            }, 2000);
+          // Configuración inicial - Música activa por defecto
+          let musicaActiva = true;
 
-            // Cambiar temporalmente el texto del botón
-            var boton = $(this);
-            var textoOriginal = boton.html();
-            boton.html('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>Copiado');
-            boton.css('background-color', 'var(--color-5)');
-
-            // Restaurar después de 1.5 segundos
-            setTimeout(function () {
-              boton.html(textoOriginal);
-              boton.css('background-color', '');
-            }, 1500);
+          // Función para actualizar la apariencia del botón
+          function actualizarAparienciaBoton() {
+            if (musicaActiva) {
+              // Cuando la música está activa - colores invertidos
+              musicButton.setAttribute('data-estado-music', 'play');
+              musicButton.classList.add('playing');
+              musicButton.classList.remove('paused');
+              musicButton.style.filter = "invert(1) brightness(0.8) saturate(1.5)";
+              musicButton.style.transform = "scale(1.05)";
+            } else {
+              // Cuando la música está pausada - colores normales
+              musicButton.setAttribute('data-estado-music', 'pause');
+              musicButton.classList.add('paused');
+              musicButton.classList.remove('playing');
+              musicButton.style.filter = "brightness(0.7) saturate(1.3)";
+              musicButton.style.transform = "scale(1)";
+            }
           }
-        });
 
-        // Asegurar que el modal esté listo
-        $('#modalRegalos').on('shown.bs.modal', function () {
-          // Resetear mensaje cuando se abre el modal
-          $('#modalRegalos #mensaje-copiado').hide();
-        });
-        // LÓGICA DE MÚSICA Y BOTÓN EMPEZAR - SIMPLE Y DIRECTA
-        // Elementos clave
-        const pantallaBienvenida = document.getElementById('pantalla-bienvenida');
-        const btnEmpezar = document.getElementById('btn-empezar');
-        const audioElement = document.getElementById('cancion');
-
-        // Función para iniciar experiencia
-        function iniciarInvitacion() {
-            console.log('✓ Botón Empezar clickeado');
-            
-            // 1. Ocultar pantalla de bienvenida
-            if (pantallaBienvenida) {
-                pantallaBienvenida.style.display = 'none';
-                console.log('✓ Pantalla de bienvenida ocultada');
+          // Función para reproducir música
+          function reproducirMusica() {
+            if (audio) {
+              audio.play().then(() => {
+                musicaActiva = true;
+                actualizarAparienciaBoton();
+                console.log('Música comenzó a reproducirse');
+              }).catch(error => {
+                console.log('Error al reproducir música:', error);
+                // Si hay error de autoplay, intentamos con interacción del usuario
+              });
             }
-            
-            // 2. Reproducir música
-            if (audioElement) {
-                audioElement.volume = 0.5;
-                audioElement.play().then(() => {
-                    console.log('✓ Música iniciada');
-                }).catch(error => {
-                    console.log('✗ Error música:', error);
-                });
-            }
-        }
+          }
 
-        // Asignar evento al botón
-        if (btnEmpezar) {
-            btnEmpezar.addEventListener('click', iniciarInvitacion);
-            console.log('✓ Botón Empezar listo');
-        }
+          // Función para pausar música
+          function pausarMusica() {
+            if (audio) {
+              audio.pause();
+              musicaActiva = false;
+              actualizarAparienciaBoton();
+            }
+          }
+
+          // Función para alternar entre play/pause
+          function toggleMusica() {
+            if (musicaActiva) {
+              pausarMusica();
+            } else {
+              reproducirMusica();
+            }
+          }
+
+          // 1. Al hacer clic en el botón de música
+          if (musicButton) {
+            musicButton.addEventListener('click', function (e) {
+              e.preventDefault();
+              toggleMusica();
+            });
+          }
+
+          // 2. Reproducir automáticamente al cargar la página - YA ACTIVADO
+          if (audio) {
+            // Configurar volumen
+            audio.volume = 0.5; // Volumen al 50%
+
+            // Reproducir inmediatamente
+            setTimeout(function () {
+              reproducirMusica();
+
+              // Ya que la música empieza activada, actualizamos el botón inmediatamente
+              actualizarAparienciaBoton();
+            }, 500); // Pequeño delay para asegurar que todo cargó
+          }
+
+          // 3. Si el navegador bloquea el autoplay, intentar con una interacción
+          if (playMusicModalButton) {
+            playMusicModalButton.addEventListener('click', function (e) {
+              e.preventDefault();
+              reproducirMusica();
+              $('#modalMusica').modal('hide');
+            });
+          }
+
+          // 4. Manejar cuando el usuario interactúa con la página para desbloquear audio
+          let intentoAutoplay = false;
+
+          document.addEventListener('click', function iniciarMusicaConInteraccion() {
+            if (!musicaActiva && !intentoAutoplay) {
+              reproducirMusica();
+              intentoAutoplay = true;
+              document.removeEventListener('click', iniciarMusicaConInteraccion);
+            }
+          });
+
+          // 5. Pausar música cuando la pestaña no está activa
+          document.addEventListener('visibilitychange', function () {
+            if (document.hidden && musicaActiva) {
+              // Solo pausamos pero mantenemos el estado como "activo"
+              audio.pause();
+            } else if (!document.hidden && musicaActiva && audio.paused) {
+              // Reanudamos cuando vuelve a la pestaña
+              audio.play().catch(e => console.log('Error al reanudar:', e));
+            }
+          });
+
+          // 6. Inicializar el botón como "activo" desde el principio
+          actualizarAparienciaBoton();
+
+          // FUNCIÓN PARA INICIAR LA INVITACIÓN (BOTÓN EMPEZAR)
+          function iniciarInvitacion() {
+              console.log('✓ Botón empezar clickeado');
+              
+              // 1. Ocultar la pantalla de bienvenida con fade-out
+              if (pantallaBienvenida) {
+                  console.log('✓ Ocultando pantalla de bienvenida');
+                  pantallaBienvenida.style.opacity = '0';
+                  pantallaBienvenida.style.transition = 'opacity 1s ease';
+                  pantallaBienvenida.style.pointerEvents = 'none';
+                  
+                  // Después de 1 segundo, quitamos el elemento por completo
+                  setTimeout(() => {
+                      pantallaBienvenida.style.display = 'none';
+                  }, 1000);
+              }
+              
+              // 2. Intentar reproducir la música
+              if (audio) {
+                  console.log('✓ Reproduciendo música');
+                  audio.volume = 0.5;
+                  audio.play().then(() => {
+                      console.log('✓ Música iniciada correctamente');
+                  }).catch(error => {
+                      console.log('✗ Error al iniciar música:', error);
+                  });
+              }
+
+              // 3. Desplazar la página hacia la invitación
+              const seccionPortada = document.querySelector('section.portada');
+              if (seccionPortada) {
+                  setTimeout(() => {
+                      console.log('✓ Desplazando a portada');
+                      seccionPortada.scrollIntoView({ 
+                          behavior: 'smooth', 
+                          block: 'start' 
+                      });
+                  }, 500);
+              }
+          }
+
+          // ASIGNAR EVENTO AL BOTÓN EMPEZAR
+          if (btnEmpezar) {
+              console.log('✓ Botón Empezar encontrado, asignando evento click');
+              btnEmpezar.addEventListener('click', iniciarInvitacion);
+          } else {
+              console.error('✗ ERROR: Botón Empezar NO encontrado (id="btn-empezar")');
+          }
           
-        // Inicializar Animaciones
-        try { AOS.init(); } catch (e) { }
+          // Inicializar Animaciones
+          try { AOS.init(); } catch (e) { }
 
-        // Inicializar Carrusel
-        $('.carrusel').slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          fade: true,
-          cssEase: 'linear',
-          autoplay: true,
-          autoplaySpeed: 2000,
-          arrows: true,
-          responsive: [{
-            breakpoint: 768,
-            settings: { arrows: false, dots: true }
-          }]
+          // Inicializar Carrusel
+          $('.carrusel').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            responsive: [{
+              breakpoint: 768,
+              settings: { arrows: false, dots: true }
+            }]
+          });
         });
-      });
     </script>
   </body>
 

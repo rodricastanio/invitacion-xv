@@ -3152,6 +3152,10 @@ footer img.firma-footer {
     display: none;
   }
 
+  .bienvenida-titulo{
+    font-size: 80px !important;
+  }
+
   /* En móvil la ola debe superponerse y "tapar" el inicio de la siguiente sección */
   .ola-separador {
     position: absolute;
@@ -3275,4 +3279,157 @@ section.portada::after {
 /* Forzar que el contenedor de la imagen permita que la wave la tape visualmente */
 section.portada .portada-picture {
   overflow: visible;
+}
+
+/* -------------------------------------------------- */
+/* PANTALLA DE BIENVENIDA (MOBILE FIRST) */
+/* -------------------------------------------------- */
+#pantalla-bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background: linear-gradient(to bottom, var(--color-2), var(--color-4));
+    z-index: 9999; /* Asegura que esté por encima de todo al inicio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+/* Evita que el cuerpo se mueva mientras está la bienvenida */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Clase para ocultar la pantalla con una transición */
+#pantalla-bienvenida.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Contenedor del contenido para mejor control */
+.bienvenida-contenido {
+    max-width: 400px; /* Ancho máximo para que no se vea muy grande en tablets */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adornos (corazones, flores, etc.) */
+.bienvenida-adorno {
+    margin: 10px 0 20px 0;
+}
+.bienvenida-adorno.abajo {
+    margin: 30px 0 10px 0;
+}
+.bienvenida-adorno svg {
+    width: 50px;
+    height: auto;
+    fill: var(--color-3); /* Asegura que herede el color */
+}
+
+/* Título principal */
+.bienvenida-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 30px;
+    align-items: center;
+    font-size: 80px;
+
+}
+
+
+
+
+.bienvenida-bienvenidos {
+    font-family: var(--fuente-2);
+    font-size: 20px;
+    color: var(--color-4);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+.bienvenida-a {
+    font-family: var(--fuente-2);
+    font-size: 25px;
+    color: var(--color-4);
+    font-weight: 400;
+    margin-top: -5px;
+}
+
+.bienvenida-nombre {
+    font-family: var(--fuente-1);
+    font-size: 80px; /* Grande en móvil */
+    line-height: 1;
+    color: var(--color-1);
+    text-transform: uppercase;
+    font-weight: 540;
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+}
+/* Efecto de "apertura" para el nombre, similar a tu portada */
+.bienvenida-nombre::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 100%;
+    background-image: url('./assets/apertura.png'); /* Usamos tu misma imagen */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4; /* Más sutil para que no opaque el texto */
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+/* Texto descriptivo */
+.bienvenida-texto {
+    font-family: var(--fuente-2);
+    font-size: 55px;
+    color: var(--color-4);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* El botón "Empezar" usa la clase .boton que ya tienes definida */
+#btn-empezar {
+    width: auto;
+    min-width: 200px;
+    padding: 18px 30px;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    /* Pequeño efecto de escala al pasar el mouse (no esencial en móvil pero queda bien) */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+#btn-empezar:hover {
+    transform: scale(1.02);
+}
+
+/* Ajuste para pantallas muy pequeñas (ej: iPhone SE) */
+@media (max-width: 380px) {
+    .bienvenida-nombre {
+        font-size: 55px;
+    }
+    .bienvenida-bienvenidos {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+    .bienvenida-texto {
+        font-size: 16px;
+    }
 }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Botón Empezar</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        
+        #pantalla-bienvenida {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+        
+        #pantalla-bienvenida.oculta {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .bienvenida-contenido {
+            text-align: center;
+            color: white;
+        }
+        
+        .bienvenida-contenido h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .bienvenida-contenido p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        button {
+            padding: 15px 40px;
+            font-size: 16px;
+            background-color: white;
+            color: #667eea;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contenido-principal {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .contenido-principal h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        audio {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="cancion" loop>
+        <source src="./assets/cancion.mp3" type="audio/mpeg">
+        <source src="./assets/cancion.mpeg" type="audio/mpeg">
+    </audio>
+
+    <!-- PANTALLA DE BIENVENIDA -->
+    <div id="pantalla-bienvenida">
+        <div class="bienvenida-contenido">
+            <h1>Bienvenidos a los XV de Delfina</h1>
+            <p>Presioná "Empezar" para ingresar</p>
+            <button id="btn-empezar">Empezar</button>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenido-principal">
+        <h2>¡Bienvenida Delfina!</h2>
+        <p>Aquí comienza tu fiesta de XV años</p>
+        <audio controls style="width: 100%; max-width: 400px;"></audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== INICIANDO SCRIPT ===');
+            
+            const btnEmpezar = document.getElementById('btn-empezar');
+            const pantallaBienvenida = document.getElementById('pantalla-bienvenida');
+            const audioElement = document.getElementById('cancion');
+            
+            console.log('btnEmpezar:', btnEmpezar);
+            console.log('pantallaBienvenida:', pantallaBienvenida);
+            console.log('audioElement:', audioElement);
+            
+            if (btnEmpezar) {
+                btnEmpezar.addEventListener('click', function() {
+                    console.log('✓ Click detectado en botón Empezar');
+                    
+                    // Ocultar pantalla de bienvenida
+                    if (pantallaBienvenida) {
+                        console.log('✓ Ocultando pantalla de bienvenida');
+                        pantallaBienvenida.classList.add('oculta');
+                    }
+                    
+                    // Reproducir música
+                    if (audioElement) {
+                        console.log('✓ Intentando reproducir música');
+                        audioElement.volume = 0.5;
+                        audioElement.play()
+                            .then(() => console.log('✓ Música iniciada'))
+                            .catch(err => console.log('✗ Error al reproducir:', err));
+                    }
+                    
+                    // Desplazar a contenido principal
+                    setTimeout(() => {
+                        console.log('✓ Desplazando a contenido principal');
+                        document.querySelector('.contenido-principal').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                });
+                console.log('✓ Evento click asignado');
+            } else {
+                console.error('✗ El botón Empezar NO fue encontrado');
+            }
+        });
+    </script>
+</body>
+</html>
