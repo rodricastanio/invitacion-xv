@@ -64,6 +64,44 @@
       pointer-events: none;
     }
 
+
+    .bienvenida-a {
+      font-family: var(--fuente-2);
+      font-size: 25px;
+      color: var(--color-4);
+      font-weight: 400;
+      margin-top: -5px;
+    }
+    .bienvenida-bienvenidos{
+      font-family: var(--fuente-1);
+      font-size: 30px; /* Grande en móvil */
+      line-height: 1;
+      color: var(--color-4);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .bienvenida-nombre {
+      font-family: var(--fuente-1);
+      font-size: 70px; /* Grande en móvil */
+      line-height: 1;
+      color: var(--color-1);
+      text-transform: uppercase;
+    }
+
+    .bienvenida-texto {
+      font-family: var(--fuente-2);
+      font-size: 20px;
+      color: var(--color-4);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-weight: 400;
+      text-align: center;
+    }
+
     /* Asegurar que las imágenes se superpongan */
     .flores-grupo02-wrapper picture {
       position: absolute;
@@ -3290,7 +3328,7 @@ section.portada .portada-picture {
     left: 0;
     width: 100%;
     height: 100%;
-     background: linear-gradient(to bottom, var(--color-2), var(--color-4));
+     background: linear-gradient(to bottom, var(--color-3), var(--color-4));
     z-index: 9999; /* Asegura que esté por encima de todo al inicio */
     display: flex;
     justify-content: center;
