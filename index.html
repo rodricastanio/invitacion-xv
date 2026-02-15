@@ -98,6 +98,21 @@
     .addeventatc .transp {
       display: none !important;
     }
+
+    /* BLOQUEAR SCROLL CUANDO ESTÁ ACTIVA LA PANTALLA DE BIENVENIDA */
+    html.bienvenida-activa {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    body.bienvenida-activa {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
   </style>
 </head>
 
@@ -1693,6 +1708,22 @@
         const btnEmpezar = document.getElementById('btn-empezar');
         const audioElement = document.getElementById('cancion');
 
+        // Función para bloquear scroll
+        function bloquearScroll() {
+            document.documentElement.classList.add('bienvenida-activa');
+            document.body.classList.add('bienvenida-activa');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        }
+
+        // Función para desbloquear scroll
+        function desbloquearScroll() {
+            document.documentElement.classList.remove('bienvenida-activa');
+            document.body.classList.remove('bienvenida-activa');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
         // Función para iniciar experiencia
         function iniciarInvitacion() {
             console.log('✓ Botón Empezar clickeado');
@@ -1700,8 +1731,8 @@
             // 1. Ocultar pantalla de bienvenida
             if (pantallaBienvenida) {
                 pantallaBienvenida.style.display = 'none';
-                document.body.classList.remove('bienvenida-activa'); // Desbloquear scroll
-                console.log('✓ Pantalla de bienvenida ocultada');
+                desbloquearScroll();
+                console.log('✓ Pantalla de bienvenida ocultada - Scroll desbloqueado');
             }
             
             // 2. Reproducir música
@@ -1713,6 +1744,11 @@
                     console.log('✗ Error música:', error);
                 });
             }
+            
+            // 3. Desplazar al top de la página
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
         }
 
         // Asignar evento al botón
@@ -1722,7 +1758,37 @@
         }
         
         // Bloquear scroll mientras está el menú de bienvenida
-        document.body.classList.add('bienvenida-activa');
+        bloquearScroll();
+        console.log('✓ Scroll bloqueado al cargar');
+
+        // Prevenir scroll táctil en móviles cuando está activa la pantalla de bienvenida
+        function preventScroll(e) {
+            e.preventDefault();
+        }
+
+        // Bloquear eventos de scroll táctil
+        document.addEventListener('touchmove', preventScroll, { passive: false });
+        document.addEventListener('wheel', preventScroll, { passive: false });
+
+        // Al hacer clic en Empezar, permitir scroll
+        function permitirScrollConEventos() {
+            document.removeEventListener('touchmove', preventScroll);
+            document.removeEventListener('wheel', preventScroll);
+            console.log('✓ Scroll táctil permitido');
+        }
+
+        // Actualizar la función iniciarInvitacion para permitir scroll
+        const iniciarInvitacionAnterior = iniciarInvitacion;
+        function iniciarInvitacionActualizada() {
+            iniciarInvitacionAnterior();
+            permitirScrollConEventos();
+        }
+
+        // Reemplazar el evento del botón
+        if (btnEmpezar) {
+            btnEmpezar.removeEventListener('click', iniciarInvitacion);
+            btnEmpezar.addEventListener('click', iniciarInvitacionActualizada);
+        }
           
         // Inicializar Animaciones
         try { AOS.init(); } catch (e) { }

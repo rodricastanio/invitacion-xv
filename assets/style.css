@@ -3338,14 +3338,23 @@ section.portada .portada-picture {
 
 /* Evita que el cuerpo se mueva mientras está la bienvenida */
 body.modal-open {
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 /* Bloquear scroll cuando la pantalla de bienvenida está activa */
-body.bienvenida-activa {
-    overflow: hidden;
+html.bienvenida-activa {
+    overflow: hidden !important;
+    height: 100% !important;
+    position: fixed !important;
 }
-    overflow: hidden;
+
+body.bienvenida-activa {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Clase para ocultar la pantalla con una transición */
